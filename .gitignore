@@ -1,0 +1,24 @@
+# Objets et binaires
+*.o
+*.a
+*.out
+*.d
+
+# Exécutable
+cub3D
+cub3d
+
+# MiniLibX compilée
+mlx_src/*.o
+mlx_src/libmlx.a
+mlx_src/libmlx_Linux.a
+
+# Libft compilée (si applicable)
+libft/*.o
+libft/libft.a
+
+# Éditeurs / système
+.vscode/
+.DS_Store
+*.swp
+*~
