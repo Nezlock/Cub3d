@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:41:05 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/17 23:21:20 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/21 15:29:57 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(const char *s1, const char *s2);
-size_t		ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*read_line(int fd, char *text);
 char	*get_lines(char *text);
