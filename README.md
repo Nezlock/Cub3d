@@ -10,6 +10,35 @@ For each vertical column of the screen, a ray is cast into a 2D grid. The distan
 
 The engine handles player movement (forward, backward, strafing) and camera rotation in real time, with wall-sliding collision detection.
 
+### Execution pipeline
+
+```
+main()
+├─ argument validation (argc, .cub extension)
+├─ init_all()              zero-initialize all structures
+├─ parser()                read the file into an array of lines
+├─ parse_config()          dispatch textures/colors, store the map
+├─ check_all()             validate paths, colors, map (flood fill)
+├─ init_player()           center player in spawn cell, set dir/plane
+├─ init_colors()           convert RGB arrays to 0xRRGGBB integers
+├─ init_mlx()              X11 connection, window, off-screen image
+├─ init_textures_mlx()     load the 4 XPM files into MLX images
+├─ setup_hooks()           register keyboard, close, and render callbacks
+└─ mlx_loop()              enter the X11 event loop
+	 │
+	 └─ each frame: render()
+	 ├─ move_player()            apply WASD movement + arrow rotation
+	 ├─ raycast()                for each screen column x:
+	 │    ├─ init_ray_dir()      compute ray direction from camera plane
+	 │    ├─ init_ray_step()     compute deltaDist, sideDist, step
+	 │    ├─ perform_dda()       walk the grid until a wall is hit
+	 │    ├─ calc_wall_height()  perpendicular distance → wall height
+	 │    └─ draw_column()       ceiling + textured wall + floor
+	 └─ mlx_put_image_to_window()  blit the completed image to screen
+```
+
+The entire frame is drawn into an off-screen image buffer before being displayed in a single call, which avoids tearing. The wall distance used for projection is perpendicular to the camera plane (not Euclidean), which corrects the fisheye distortion at screen edges.
+
 ## Instructions
 
 ### Prerequisites
@@ -61,10 +90,10 @@ EA ./textures/east.xpm
 F 220,100,0
 C 225,30,0
 
-        1111111111111111111111111
-        1000000000110000000000001
-        1011000001110000000000001
-        1001000000000000000000001
+	1111111111111111111111111
+	1000000000110000000000001
+	1011000001110000000000001
+	1001000000000000000000001
 1111111110110000011100000000000001
 1000000000110000011101111111111111
 11110111111111011100000010001
