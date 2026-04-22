@@ -50,8 +50,8 @@ static int	key_release(int key, t_data *data)
 
 void	setup_hooks(t_data *data)
 {
-	mlx_hook(data->mlx.win, 2, 1L << 0, key_press, data);
-	mlx_hook(data->mlx.win, 3, 1L << 1, key_release, data);
-	mlx_hook(data->mlx.win, 17, 0, handle_destroy, data);
-	mlx_loop_hook(data->mlx.mlx, render, data);
+	mlx_hook(data->mlx.win, 2, 1L << 0, (void *)key_press, data);
+	mlx_hook(data->mlx.win, 3, 1L << 1, (void *)key_release, data);
+	mlx_hook(data->mlx.win, 17, 0, (void *)handle_destroy, data);
+	mlx_loop_hook(data->mlx.mlx, (void *)render, data);
 }

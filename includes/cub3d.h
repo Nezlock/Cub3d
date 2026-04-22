@@ -45,8 +45,8 @@
 # define KEY_LEFT  65361
 # define KEY_RIGHT 65363
 
-# define MOVE_SPEED 0.05
-# define ROT_SPEED  0.03
+# define MOVE_SPEED 0.02
+# define ROT_SPEED  0.01
 
 # define TEX_NO 0
 # define TEX_SO 1
