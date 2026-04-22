@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 15:00:09 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/18 15:00:12 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 18:55:11 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ char	*fill_path(char *src)
 
 void	dispatch(char *line, t_data *data)
 {
+	while (*line && ft_isspace(*line))
+		line++;
+	if (!*line)
+		return ;
 	if (line[0] == 'N' && line[1] == 'O' && data->path.north == NULL)
 		data->path.north = fill_path(line);
 	else if (line[0] == 'E' && line[1] == 'A' && data->path.east == NULL)

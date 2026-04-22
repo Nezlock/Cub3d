@@ -123,4 +123,4 @@ AI (Claude, by Anthropic) was used as a learning and review companion throughout
 
 - **Concept explanation**: understanding the raycasting pipeline, the DDA algorithm, perpendicular distance correction (fisheye), and texture mapping math — before writing any code.
 
-AI was **not** used to generate code that was copy-pasted into the project. All code was written manually, with AI serving as a tool for understanding concepts, catching mistakes, and preparing for the oral defense.
+AI was **not** used to generate code that was copy-pasted into the project. All code was written manually, with AI serving as a tool for understanding concepts.
