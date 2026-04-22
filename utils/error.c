@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 14:58:51 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/18 14:58:52 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 17:55:39 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	free_all(t_data *data)
 	free(data->path.west);
 	if (data->map)
 		free_map(data->map);
+	if (data->raw_file)
+		free_map(data->raw_file);
 	free_mlx(data);
 }
 

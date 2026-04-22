@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 15:00:14 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/18 15:00:16 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 17:58:34 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ char	**parser(char	*line, t_data *map)
 	while (i < count)
 	{
 		file[i] = get_next_line(fd);
-		trim(file[i]);
+		if (file[i])
+			trim(file[i]);
 		i++;
 	}
 	close(fd);

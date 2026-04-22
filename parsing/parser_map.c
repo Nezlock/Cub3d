@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 15:00:02 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/18 15:00:05 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 18:02:02 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	fill_map(t_data *data, char **file)
 	if (!data->map)
 		ft_error(data, ERR_MALLOC);
 	data->m_raw = count;
+	data->m_col = max_w;
 	i = -1;
 	while (++i < count)
 		data->map[i] = pad_line(file[i], max_w, data);

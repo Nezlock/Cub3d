@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 14:59:56 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/18 14:59:57 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 18:02:22 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ void	init_textures(t_textures *textures)
 void	init_data(t_data *data)
 {
 	data->map = NULL;
+	data->raw_file = NULL;
 	data->m_raw = 0;
+	data->m_col = 0;
 	data->player.pos_x = 0;
 	data->player.pos_y = 0;
 	data->player.dir_x = 0;

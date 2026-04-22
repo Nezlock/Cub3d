@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 14:58:37 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/18 14:58:42 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 17:55:00 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ static void	init_colors(t_textures *t)
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	char	**grid;
 
 	if (argc != 2)
 		return (write(2, "Error\nUsage: ./cub3D <map.cub>\n", 31), 1);
 	if (!check_extension(argv[1]))
 		return (write(2, "Error\nFile must have .cub extension\n", 36), 1);
 	init_all(&data);
-	grid = parser(argv[1], &data);
-	parse_config(grid, &data);
-	free_map(grid);
+	data.raw_file = parser(argv[1], &data);
+	parse_config(data.raw_file, &data);
+	free_map(data.raw_file);
+	data.raw_file = NULL;
 	check_all(&data);
 	init_player(&data);
 	init_colors(&data.textures);

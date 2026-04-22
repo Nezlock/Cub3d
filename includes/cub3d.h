@@ -6,7 +6,7 @@
 /*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 15:00:59 by ntahri            #+#    #+#             */
-/*   Updated: 2026/04/18 15:01:01 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 18:01:11 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,9 @@ typedef struct s_tex
 typedef struct s_data
 {
 	char		**map;
+	char		**raw_file;
 	int			m_raw;
+	int			m_col;
 	t_player	player;
 	t_textures	textures;
 	t_path		path;

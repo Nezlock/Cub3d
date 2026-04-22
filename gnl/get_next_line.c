@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntahri <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ntahri <ntahri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:39:58 by ntahri            #+#    #+#             */
-/*   Updated: 2025/03/05 11:40:37 by ntahri           ###   ########.fr       */
+/*   Updated: 2026/04/22 18:08:57 by ntahri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	output = get_lines(text);
 	text = clean_line(text);
+	if (text && !text[0])
+	{
+		free(text);
+		text = NULL;
+	}
 	return (output);
 }
